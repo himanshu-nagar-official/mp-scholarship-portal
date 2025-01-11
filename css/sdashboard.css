@@ -1,0 +1,11 @@
+/*Apply Online/View Application Links*/
+a.apply-view-links:hover 
+{
+	text-decoration: none;
+	color: red;
+}
+a.apply-view-links 
+{
+	text-decoration: none;
+	color: blue;
+}

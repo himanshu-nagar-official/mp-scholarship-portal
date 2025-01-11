@@ -1,0 +1,17 @@
+/*Student Registration Form*/
+.registration-form 
+{
+  max-width: 1000px;
+  margin: auto;
+  height: auto;
+  background-color: white;
+  border: 3px solid orange;
+  border-radius: 10px;
+}
+
+/*Avatar*/
+.avatar 
+{
+  height: 150px;
+  width: 180px;
+}

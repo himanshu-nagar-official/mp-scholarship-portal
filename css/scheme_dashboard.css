@@ -1,0 +1,11 @@
+/*Application Management Links*/
+a.app-management-links:hover 
+{
+	text-decoration: none;
+	color: red;
+}
+a.app-management-links 
+{
+	text-decoration: none;
+	color: blue;
+}

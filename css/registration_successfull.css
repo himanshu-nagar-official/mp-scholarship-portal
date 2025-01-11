@@ -1,0 +1,11 @@
+/*Highlight User ID & Password*/
+.highlight 
+{
+	background-color: yellow;
+}
+
+/*Print Button CSS*/
+.print-btn 
+{
+	cursor: pointer;
+}

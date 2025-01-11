@@ -1,0 +1,55 @@
+/*Slideshow Styling*/
+.carousel-inner img 
+{
+    width: 100%;
+    height: 100%;
+}
+
+/*Corner Links*/
+a.corner-links:hover 
+{
+	text-decoration: none;
+	color: red;
+}
+a.corner-links 
+{
+	text-decoration: none;
+	color: black;
+}
+
+/*Student Corner Cards*/
+div.student-corner-card-body:hover 
+{
+	background-color: #f5f5f5;
+	border-radius: 10px;
+}
+div.student-corner-card 
+{
+	border: 3px solid orange;
+	border-radius: 10px;
+}
+div.student-corner-card:hover 
+{
+	border: 3px solid blue;
+}
+img.card-icon 
+{
+	width: 100px;
+	height: 100px;
+	animation: rotate-counter-clockwise 0.8s ease-in-out;
+	border: 2px solid black;
+}
+div.student-corner-card-body:hover .card-icon 
+{
+	animation: rotate-clockwise 0.8s ease-in-out;
+}
+@keyframes rotate-clockwise 
+{
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes rotate-counter-clockwise 
+{
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}

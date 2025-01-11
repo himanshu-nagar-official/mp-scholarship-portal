@@ -1,0 +1,13 @@
+/*Login Form*/
+.login-form {
+  max-width: 450px;
+  margin: auto;
+  background-color: white;
+  border: 3px solid orange;
+  border-radius: 10px;
+}
+
+/*Show Password Icon*/
+.eye_icon {
+  cursor: pointer;
+}

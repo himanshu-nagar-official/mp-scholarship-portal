@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"
+         metadata-complete="true">
+
+    <welcome-file-list>  
+      <welcome-file>index.jsp</welcome-file>    
+    </welcome-file-list>
+
+    <servlet>
+      <servlet-name>Student_Registration</servlet-name>
+      <servlet-class>Student_Registration</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Student_Registration</servlet-name>
+      <url-pattern>/jsp/Student_Registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Student_Login</servlet-name>
+      <servlet-class>Student_Login</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Student_Login</servlet-name>
+      <url-pattern>/jsp/Student_Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Student_Forgot_Password</servlet-name>
+      <servlet-class>Student_Forgot_Password</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Student_Forgot_Password</servlet-name>
+      <url-pattern>/jsp/Student_Forgot_Password</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Student_Logout</servlet-name>
+      <servlet-class>Student_Logout</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Student_Logout</servlet-name>
+      <url-pattern>/jsp/Student_Logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Inline_Common_Login</servlet-name>
+      <servlet-class>Inline_Common_Login</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Inline_Common_Login</servlet-name>
+      <url-pattern>/jsp/Inline_Common_Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_Student_Photo</servlet-name>
+      <servlet-class>Upload_Student_Photo</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_Student_Photo</servlet-name>
+      <url-pattern>/jsp/Upload_Student_Photo</url-pattern>
+    </servlet-mapping>
+	
+	  <servlet>
+      <servlet-name>Update_Student_Voter_Id</servlet-name>
+      <servlet-class>Update_Student_Voter_Id</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Update_Student_Voter_Id</servlet-name>
+      <url-pattern>/jsp/Update_Student_Voter_Id</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_Caste_Certificate</servlet-name>
+      <servlet-class>Upload_Caste_Certificate</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_Caste_Certificate</servlet-name>
+      <url-pattern>/jsp/Upload_Caste_Certificate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_High_School</servlet-name>
+      <servlet-class>Upload_High_School</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_High_School</servlet-name>
+      <url-pattern>/jsp/Upload_High_School</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_Higher_Secondary</servlet-name>
+      <servlet-class>Upload_Higher_Secondary</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_Higher_Secondary</servlet-name>
+      <url-pattern>/jsp/Upload_Higher_Secondary</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_IC_FR_LM</servlet-name>
+      <servlet-class>Upload_IC_FR_LM</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_IC_FR_LM</servlet-name>
+      <url-pattern>/jsp/Upload_IC_FR_LM</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_Edit_Bank_Account</servlet-name>
+      <servlet-class>Upload_Edit_Bank_Account</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_Edit_Bank_Account</servlet-name>
+      <url-pattern>/jsp/Upload_Edit_Bank_Account</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Upload_Sambal_Card</servlet-name>
+      <servlet-class>Upload_Sambal_Card</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Upload_Sambal_Card</servlet-name>
+      <url-pattern>/jsp/Upload_Sambal_Card</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Main_Application_Registration</servlet-name>
+      <servlet-class>Main_Application_Registration</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Main_Application_Registration</servlet-name>
+      <url-pattern>/jsp/Main_Application_Registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Institute_Login</servlet-name>
+      <servlet-class>Institute_Login</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Institute_Login</servlet-name>
+      <url-pattern>/jsp/Institute_Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Institute_Logout</servlet-name>
+      <servlet-class>Institute_Logout</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Institute_Logout</servlet-name>
+      <url-pattern>/jsp/Institute_Logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>Application_Approval</servlet-name>
+      <servlet-class>Application_Approval</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+      <servlet-name>Application_Approval</servlet-name>
+      <url-pattern>/jsp/Application_Approval</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+      <session-timeout>40</session-timeout>
+    </session-config>
+
+    <error-page>
+      <error-code>404</error-code>
+      <location>/jsp/404.jsp</location>
+    </error-page>
+
+</web-app>
