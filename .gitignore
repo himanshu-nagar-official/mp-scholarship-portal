@@ -40,7 +40,6 @@ WEB-INF/classes/
 *.ear
 
 # Database files
-*.sql
 *.db
 
 # Environment variables
