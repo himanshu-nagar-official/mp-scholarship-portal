@@ -23,7 +23,7 @@ Thumbs.db
 # Java build directories
 bin/
 build/
-/WEB-INF/classes/
+WEB-INF/classes/
 
 # Dependency directories
 /.m2/
