@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Student_Registration")
@@ -38,20 +39,13 @@ public class Student_Registration extends HttpServlet
 		//Create Connection Object
 		Connection con = null;
 
-		//Create MySQL Database Connection Parameters Local Variables
-		String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-		String uid = "root";
-		String pass = "poly";
-		String driver = "com.mysql.jdbc.Driver";
-
 		try
 		{
 			//Try to open Database Connection
-			Class.forName(driver);
-			con = DriverManager.getConnection(url,uid,pass);
+			con = DBConnection.getConnection();
 
 			//If Connection Successfully Established
-			if(!con.isClosed())
+			if(con != null && !con.isClosed())
 			{
 				//Create Select Query for getting all data from students table & Execute it
 				String qry = "select applicant_id from students";

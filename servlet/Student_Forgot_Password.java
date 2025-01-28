@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Properties;
+
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -16,6 +16,7 @@ import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.Transport;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Student_Forgot_Password")
@@ -35,13 +36,7 @@ public class Student_Forgot_Password extends HttpServlet
     		String hash_key = request.getParameter("hash_key");
 
     		//Create Connection Object
-    		Connection con = null;
-
-    		//Create MySQL Database Connection Parameters Local Variables
-			String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-			String uid = "root";
-			String pass = "poly";
-			String driver = "com.mysql.jdbc.Driver";
+			Connection con = null;
 
 			//Create Boolean Type Local Variables to check if Hash Key is Valid
 			boolean hash_key_matched = false;
@@ -49,11 +44,10 @@ public class Student_Forgot_Password extends HttpServlet
 			try
 			{
 				//Try to open Database Connection
-				Class.forName(driver);
-				con = DriverManager.getConnection(url,uid,pass);
+				con = DBConnection.getConnection();
 
 				//If Connection Successfully Established
-				if(!con.isClosed())
+				if(con != null && !con.isClosed())
 				{
 					//Create Select Query for getting data from forgot_password table where hash_key matches & Execute it
 					String qry = "select * from forgot_password where hash_key='"+hash_key+"'";
@@ -169,13 +163,7 @@ public class Student_Forgot_Password extends HttpServlet
     		String hash_key = request.getParameter("hash_key");
 
     		//Create Connection Object
-    		Connection con = null;
-
-    		//Create MySQL Database Connection Parameters Local Variables
-			String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-			String uid = "root";
-			String pass = "poly";
-			String driver = "com.mysql.jdbc.Driver";
+			Connection con = null;
 
 			//Create Boolean Type Local Variables to check if Hash Key is Valid
 			boolean hash_key_matched = false;
@@ -183,11 +171,10 @@ public class Student_Forgot_Password extends HttpServlet
 			try
 			{
 				//Try to open Database Connection
-				Class.forName(driver);
-				con = DriverManager.getConnection(url,uid,pass);
+				con = DBConnection.getConnection();
 
 				//If Connection Successfully Established
-				if(!con.isClosed())
+				if(con != null && !con.isClosed())
 				{
 					//Create Select Query for getting data from forgot_password table where hash_key matches & Execute it
 					String qry = "select * from forgot_password where hash_key='"+hash_key+"'";
@@ -335,22 +322,15 @@ public class Student_Forgot_Password extends HttpServlet
 			boolean applicant_is_trustworthy = false;
 	        
 	        //Create Connection Object
-	        Connection con = null;
-
-	        //Create MySQL Database Connection Parameters Local Variables
-			String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-			String uid = "root";
-			String pass = "poly";
-			String driver = "com.mysql.jdbc.Driver";
+			Connection con = null;
 
 			try
 			{
 				//Try to open Database Connection
-				Class.forName(driver);
-				con = DriverManager.getConnection(url,uid,pass);
+				con = DBConnection.getConnection();
 
 				//If Connection Successfully Established
-				if(!con.isClosed())
+				if(con != null && !con.isClosed())
 				{
 					//Create Select Query for getting data from students table where student_email & student_aadhaar matches with user input & Execute it
 					String qry = "select * from students where student_email='"+student_email+"' and student_aadhaar='"+student_aadhaar+"'";
@@ -514,7 +494,7 @@ public class Student_Forgot_Password extends HttpServlet
 		properties.put("mail.smtp.port","587");
 
 		String myAccountEmail = "madhyapradeshscholarshipportal@gmail.com";
-		String password = "Madhya*123";
+		String password = "olvg mkgq fzwi bqeo";
 
 		Session session = Session.getInstance(properties, new Authenticator(){
 			@Override

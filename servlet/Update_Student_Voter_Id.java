@@ -1,13 +1,10 @@
 //Imports
 import java.sql.*;
-import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import javax.servlet.http.*;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Update_Student_Voter_Id")
@@ -21,7 +18,6 @@ public class Update_Student_Voter_Id extends HttpServlet
     	//Get the Session Data
         HttpSession session = request.getSession(false);
         String applicant_id =(String)session.getAttribute("applicant_id");
-		String student_name =(String)session.getAttribute("student_name");
 
     	//Get Data from Request and Store them in Local Variables
         String scheme_id = request.getParameter("scheme_id");
@@ -30,20 +26,13 @@ public class Update_Student_Voter_Id extends HttpServlet
         //Create Connection Object
 		Connection con = null;
 
-		//Create MySQL Database Connection Parameters Local Variables
-		String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-		String uid = "root";
-		String pass = "poly";
-		String driver = "com.mysql.jdbc.Driver";
-
 		try
 		{
 			//Try to open Database Connection
-			Class.forName(driver);
-			con = DriverManager.getConnection(url,uid,pass);
+			con = DBConnection.getConnection();
 
 			//If Connection Successfully Established
-			if(!con.isClosed())
+			if(con != null && !con.isClosed())
 			{
 				//Create SQL Query for Execution
 				String qry = "update students SET voter_id=? where applicant_id='"+applicant_id+"'";

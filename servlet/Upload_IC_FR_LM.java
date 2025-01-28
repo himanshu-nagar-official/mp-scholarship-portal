@@ -2,22 +2,14 @@
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
-import java.util.*;
 import java.io.InputStream;
-import java.io.*;
 import java.io.FileOutputStream; 
 import java.io.OutputStream;
-import java.util.Base64;
-import java.nio.charset.StandardCharsets;
-import java.awt.image.BufferedImage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import javax.servlet.http.*;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Upload_IC_FR_LM")
@@ -63,7 +55,6 @@ public class Upload_IC_FR_LM extends HttpServlet
         //Get the Session Data
         HttpSession session = request.getSession(false);
         String applicant_id =(String)session.getAttribute("applicant_id");
-		String student_name =(String)session.getAttribute("student_name");
 
 		//Get Data from Request and Store them in Local Variables
         String scheme_id = request.getParameter("scheme_id");
@@ -71,20 +62,13 @@ public class Upload_IC_FR_LM extends HttpServlet
 		//Create Connection Object
 		Connection con = null;
 
-		//Create MySQL Database Connection Parameters Local Variables
-		String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-		String uid = "root";
-		String pass = "poly";
-		String driver = "com.mysql.jdbc.Driver";
-
 		try
 		{
 			//Try to open Database Connection
-			Class.forName(driver);
-			con = DriverManager.getConnection(url,uid,pass);
+			con = DBConnection.getConnection();
 
 			//If Connection Successfully Established
-			if(!con.isClosed())
+			if(con != null && !con.isClosed())
 			{
 				//Create SQL Query for Execution
 				String qry = "update students SET income_certificate=?, last_marksheet=?, fees_receipt=? where applicant_id='"+applicant_id+"'";
@@ -101,17 +85,17 @@ public class Upload_IC_FR_LM extends HttpServlet
 				Part last_marksheet_part = null;
 				Part fees_receipt_part = null;
 
-		        String income_certificate_file_name = "";
-		        String last_marksheet_file_name = "";
-		        String fees_receipt_file_name = "";
+		        //String income_certificate_file_name = "";
+		        //String last_marksheet_file_name = "";
+		        //String fees_receipt_file_name = "";
 
 		        income_certificate_part = request.getPart("income_certificate");
 		        last_marksheet_part = request.getPart("last_marksheet");
 		        fees_receipt_part = request.getPart("fees_receipt");
 
-	    		income_certificate_file_name = getFileName(income_certificate_part);
-	    		last_marksheet_file_name = getFileName(last_marksheet_part);
-	    		fees_receipt_file_name = getFileName(fees_receipt_part);
+	    		//income_certificate_file_name = getFileName(income_certificate_part);
+	    		//last_marksheet_file_name = getFileName(last_marksheet_part);
+	    		//fees_receipt_file_name = getFileName(fees_receipt_part);
 
 	    		income_certificate_stream = income_certificate_part.getInputStream();
 	    		last_marksheet_stream = last_marksheet_part.getInputStream();
@@ -204,7 +188,7 @@ public class Upload_IC_FR_LM extends HttpServlet
     }
 
     //getFileName Method to get file name from HTTP header content-disposition
-    private String getFileName(Part part) 
+    /*private String getFileName(Part part) 
     {
         String contentDisp = part.getHeader("content-disposition");
         
@@ -218,5 +202,5 @@ public class Upload_IC_FR_LM extends HttpServlet
             }
         }
         return "";
-    }
+    }*/
 }

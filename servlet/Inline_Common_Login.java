@@ -1,6 +1,5 @@
 //Imports
 import java.sql.*;
-import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Inline_Common_Login")
@@ -30,22 +30,15 @@ public class Inline_Common_Login extends HttpServlet
 	        boolean applicant_is_trustworthy = false;
 	        
 	        //Create Connection Object
-	        Connection con = null;
-
-	        //Create MySQL Database Connection Parameters Local Variables
-			String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-			String uid = "root";
-			String pass = "poly";
-			String driver = "com.mysql.jdbc.Driver";
+			Connection con = null;
 
 			try
 			{
 				//Try to open Database Connection
-				Class.forName(driver);
-				con = DriverManager.getConnection(url,uid,pass);
+				con = DBConnection.getConnection();
 
 				//If Connection Successfully Established
-				if(!con.isClosed())
+				if(con != null && !con.isClosed())
 				{
 					//Create Select Query for getting data from students table where applicant_id & student_password matches with user input & Execute it
 					String qry = "select * from students where applicant_id='"+applicant_id+"' and student_password='"+student_password+"'";
@@ -111,22 +104,15 @@ public class Inline_Common_Login extends HttpServlet
 	        boolean institute_is_trustworthy = false;
 	        
 	        //Create Connection Object
-	        Connection con = null;
-
-	        //Create MySQL Database Connection Parameters Local Variables
-			String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-			String uid = "root";
-			String pass = "poly";
-			String driver = "com.mysql.jdbc.Driver";
+			Connection con = null;
 
 			try
 			{
 				//Try to open Database Connection
-				Class.forName(driver);
-				con = DriverManager.getConnection(url,uid,pass);
+				con = DBConnection.getConnection();
 
 				//If Connection Successfully Established
-				if(!con.isClosed())
+				if(con != null && !con.isClosed())
 				{
 					//Create Select Query for getting data from institutes table where ins_code & ins_password matches with user input & Execute it
 					String qry = "select * from institutes where ins_code='"+ins_code+"' and ins_password='"+ins_password+"'";

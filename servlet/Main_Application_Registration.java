@@ -3,11 +3,9 @@ import java.sql.*;
 import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import javax.servlet.http.*;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Main_Application_Registration")
@@ -21,7 +19,7 @@ public class Main_Application_Registration extends HttpServlet
     	//Get the Session Data
         HttpSession session = request.getSession(false);
         String applicant_id =(String)session.getAttribute("applicant_id");
-		String student_name =(String)session.getAttribute("student_name");
+		//String student_name =(String)session.getAttribute("student_name");
 
     	//Get Data from Request and Store them in Local Variables
         String scheme_id = request.getParameter("scheme_id");
@@ -54,20 +52,13 @@ public class Main_Application_Registration extends HttpServlet
         //Create Connection Object
 		Connection con = null;
 
-		//Create MySQL Database Connection Parameters Local Variables
-		String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-		String uid = "root";
-		String pass = "poly";
-		String driver = "com.mysql.jdbc.Driver";
-
 		try
 		{
 			//Try to open Database Connection
-			Class.forName(driver);
-			con = DriverManager.getConnection(url,uid,pass);
+			con = DBConnection.getConnection();
 
 			//If Connection Successfully Established
-			if(!con.isClosed())
+			if(con != null && !con.isClosed())
 			{
 				//Create Select Query for getting all data from application table & Execute it
 				String qry = "select application_id from application";

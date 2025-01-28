@@ -1,0 +1,59 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+*.out
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# IDE-specific files
+/.idea/
+/.vscode/
+/*.iml
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Java build directories
+bin/
+build/
+/WEB-INF/classes/
+
+# Dependency directories
+/.m2/
+/lib/
+
+# Configuration files
+*.properties
+*.config
+*.settings
+*.prefs
+
+# Generated files
+*.war
+*.ear
+
+# Database files
+*.sql
+*.db
+
+# Environment variables
+.env
+
+# Temporary upload files
+uploads/
+
+# Cache and temporary files
+.cache/
+tmp/
+logs/
+
+# Custom application exclusions
+*.lock
+*.backup

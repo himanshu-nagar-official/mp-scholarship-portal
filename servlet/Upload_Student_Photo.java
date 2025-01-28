@@ -1,23 +1,13 @@
 //Imports
-import java.io.File;
-import java.io.IOException;
 import java.sql.*;
-import java.util.*;
-import java.io.InputStream;
 import java.io.*;
-import java.io.FileOutputStream; 
-import java.io.OutputStream;
 import java.util.Base64;
 import java.nio.charset.StandardCharsets;
-import java.awt.image.BufferedImage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import javax.servlet.http.*;
+import com.utils.db.DBConnection;
 
 //Define Servlet Component
 @WebServlet("/Upload_Student_Photo")
@@ -52,7 +42,6 @@ public class Upload_Student_Photo extends HttpServlet
         //Get the Session Data
         HttpSession session = request.getSession(false);
         String applicant_id =(String)session.getAttribute("applicant_id");
-		String student_name =(String)session.getAttribute("student_name");
 
 		//Get Data from Request and Store them in Local Variables
 		String scheme_id = request.getParameter("scheme_id");
@@ -60,20 +49,13 @@ public class Upload_Student_Photo extends HttpServlet
 		//Create Connection Object
 		Connection con = null;
 
-		//Create MySQL Database Connection Parameters Local Variables
-		String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-		String uid = "root";
-		String pass = "poly";
-		String driver = "com.mysql.jdbc.Driver";
-
 		try
 		{
 			//Try to open Database Connection
-			Class.forName(driver);
-			con = DriverManager.getConnection(url,uid,pass);
+			con = DBConnection.getConnection();
 
 			//If Connection Successfully Established
-			if(!con.isClosed())
+			if(con != null && !con.isClosed())
 			{
 				//Create SQL Query for Execution
 				String qry = "update students SET student_photo=? where applicant_id='"+applicant_id+"'";
@@ -84,12 +66,12 @@ public class Upload_Student_Photo extends HttpServlet
 				//Get Files Part from Request and Create an Input Stream of the File
 		    	InputStream photo_stream = null;
 		        Part photo_part = null;
-		        String photo_file_name = "";
+		        //String photo_file_name = "";
 		        String captured_pic = request.getParameter("captured");
 		        if(captured_pic.equals(""))
 		        {
 		    		photo_part = request.getPart("photo");
-		    		photo_file_name = getFileName(photo_part);
+		    		//photo_file_name = getFileName(photo_part);
 		    		photo_stream = photo_part.getInputStream();
 		    		InputStream pic_data = photo_stream;
 		    		byte[] buffer = new byte[pic_data.available()];
@@ -157,7 +139,7 @@ public class Upload_Student_Photo extends HttpServlet
     }
  
     //getFileName Method to get file name from HTTP header content-disposition
-    private String getFileName(Part part) 
+    /*private String getFileName(Part part) 
     {
         String contentDisp = part.getHeader("content-disposition");
         
@@ -171,5 +153,5 @@ public class Upload_Student_Photo extends HttpServlet
             }
         }
         return "";
-    }
+    }*/
 }

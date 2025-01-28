@@ -7,6 +7,7 @@
 <%@ page import="java.io.*"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.lang.Math"%>
+<%@ page import="com.utils.db.DBConnection" %>
 
 <!--Check if Student or Institute Logged in or not-->
 <%
@@ -62,21 +63,14 @@
 	//Try to Establish Database Connectivity  
 	try
 	{  
-		//Create Connection Type Object
+		//Create Connection Object
 		Connection con = null;
 
-		//Create MySQL Database Connection Parameters Local Variables
-		String url = "jdbc:mysql://localhost:3309/mp-scholarship-portal";
-		String uid = "root";
-		String pass = "poly";
-		String driver = "com.mysql.jdbc.Driver";
-
 		//Try to open Database Connection
-		Class.forName(driver);
-		con = DriverManager.getConnection(url,uid,pass);
+		con = DBConnection.getConnection();
 
 		//If Connection is Successfully Established
-		if(!con.isClosed())
+		if(con != null && !con.isClosed())
 		{
 			//Create SQL Query Local Variable
 			String qry = "select * from students where applicant_id='"+applicant_id+"'";
