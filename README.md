@@ -36,6 +36,7 @@ mp-scholarship-portal/
 ├── servlet/                            # Java servlets for business logic
 │   ├── com/utils/db/                   # Database-related classes
 ├── static/images/                      # Static images for the portal
+├── sql/                                # SQL schema
 ├── uploads/                            # Folder for uploaded files (e.g., student documents)
 │   └── images/
 ├── .gitignore                          # Git ignore rules
